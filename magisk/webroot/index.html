@@ -479,6 +479,28 @@
     .mode-chip.active-balance { background: rgba(0, 240, 255, 0.2); border-color: var(--accent-cyan); color: var(--accent-cyan); }
     .mode-chip.active-fast { background: rgba(239, 68, 68, 0.2); border-color: var(--accent-red); color: var(--accent-red); }
 
+    .btn-delete-chip {
+      padding: 4px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 12px;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #ef4444;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      margin-left: 2px;
+    }
+
+    .btn-delete-chip:hover {
+      background: rgba(239, 68, 68, 0.25);
+      border-color: #ef4444;
+      color: #fff;
+    }
+
     /* Custom App Input Form */
     .add-app-box {
       background: var(--bg-card);
@@ -1098,7 +1120,8 @@
         toast_rule_added: "Rule added: ",
         toast_rule_exists: "Package rule already exists",
         toast_rule_removed: "Rule removed: ",
-        toast_rule_enter_pkg: "Please enter a valid package name"
+        toast_rule_enter_pkg: "Please enter a valid package name",
+        btn_delete_app: "Delete rule"
       },
       vi: {
         soc_info: "Bộ điều phối Google Tensor G3",
@@ -1209,7 +1232,8 @@
         toast_rule_added: "Đã thêm quy tắc: ",
         toast_rule_exists: "Quy tắc gói đã tồn tại",
         toast_rule_removed: "Đã xóa quy tắc: ",
-        toast_rule_enter_pkg: "Vui lòng nhập tên package hợp lệ"
+        toast_rule_enter_pkg: "Vui lòng nhập tên package hợp lệ",
+        btn_delete_app: "Xóa quy tắc"
       }
     };
 
@@ -1637,6 +1661,12 @@
         chips.appendChild(chipSave);
         chips.appendChild(chipBal);
         chips.appendChild(chipFast);
+        const chipDelete = document.createElement("span");
+        chipDelete.className = "btn-delete-chip";
+        chipDelete.innerHTML = "&times;";
+        chipDelete.title = t("btn_delete_app");
+        chipDelete.onclick = () => deleteAppRule(index);
+        chips.appendChild(chipDelete);
 
         card.appendChild(nameBox);
         card.appendChild(chips);
@@ -1649,6 +1679,14 @@
       renderPerAppList();
       await savePerAppToFile();
       showToast(`${appRules[index].name} -> ${mode.toUpperCase()}`);
+    }
+
+    async function deleteAppRule(index) {
+      if (index < 0 || index >= appRules.length) return;
+      const removed = appRules.splice(index, 1)[0];
+      renderPerAppList();
+      await savePerAppToFile();
+      showToast(t("toast_rule_removed") + (removed.name || removed.pkg));
     }
 
     async function addCustomRule() {
