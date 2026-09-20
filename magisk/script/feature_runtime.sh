@@ -25,7 +25,7 @@ run_startup_feature() {
             sh "$SCRIPT_PATH/thermal_guard.sh" &
             ;;
         powercfg)
-            sh "$SCRIPT_PATH/powercfg_main.sh" powersave
+            sh "$SCRIPT_PATH/powercfg_main.sh" auto
             ;;
         uperf)
             uperf_start
@@ -54,6 +54,9 @@ stop_feature_runtime() {
         thermal_guard)
             stop_managed_process thermal_guard
             ;;
+        powercfg)
+            stop_managed_process smart_auto
+            ;;
         ram_clean|zram_compact|google_jobs|module_enabled)
             return 0
             ;;
@@ -65,6 +68,7 @@ stop_all_features() {
     stop_feature_runtime thermal_guard
     stop_feature_runtime gms_freeze
     stop_feature_runtime uperf
+    stop_feature_runtime powercfg
     dumpsys deviceidle unforce >/dev/null 2>&1
 }
 

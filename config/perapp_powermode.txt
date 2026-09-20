@@ -2,7 +2,7 @@
 # '-' means offscreen (standby/screen-off) rule
 # '*' means default rule for unlisted apps
 
-# Social & Light Apps (Powersave for maximum cooling)
+# Social & Light Apps
 com.facebook.katana powersave
 com.facebook.orca powersave
 com.ss.android.ugc.trill powersave
@@ -10,13 +10,19 @@ com.zhiliaoapp.musically powersave
 com.zing.zalo powersave
 com.google.android.youtube powersave
 com.android.chrome powersave
-com.google.android.GoogleCamera balance
 com.google.android.apps.photos powersave
 org.telegram.messenger powersave
 com.instagram.android powersave
 com.shopee.vn powersave
 vn.tiki.app powersave
 com.lazada.android powersave
+com.google.android.apps.nexuslauncher powersave
+
+# Camera / video — hardware also lifts via ISP detect in smart_auto
+com.google.android.GoogleCamera performance
+com.agc.gcam96 performance
+com.agc.gcam_tools balance
+com.blackmagicdesign.android.blackmagiccam performance
 
 # Heavy Games (High FPS / Performance)
 com.garena.game.kgvn fast
@@ -38,6 +44,6 @@ com.primatelabs.geekbench6 fast
 com.antutu.ABenchMark fast
 com.ioncannon.cpuburn.gpugflops fast
 
-# Global Defaults
+# Global Defaults (* = screen-on, unlisted; '-' = offscreen CPU)
 - powersave
-* powersave
+* balance
