@@ -10,7 +10,7 @@
       "perapp": "/sdcard/Android/yc/uperf/perapp_powermode.txt", 
       "hintDuration": {
         "idle": 0.0, 
-        "touch": 4.0, 
+        "touch": 1.5, 
         "trigger": 0.03, 
         "gesture": 0.1, 
         "switch": 0.4, 
@@ -21,7 +21,7 @@
       "enable": false
     }, 
     "log": {
-      "level": "info"
+      "level": "warn"
     }, 
     "input": {
       "enable": true, 
@@ -436,18 +436,18 @@
   }, 
   "initials": {
     "cpu": {
-      "baseSampleTime": 0.01, 
-      "baseSlackTime": 0.01, 
+      "baseSampleTime": 0.04, 
+      "baseSlackTime": 0.08, 
       "latencyTime": 0.5, 
-      "slowLimitPower": 3.0, 
-      "fastLimitPower": 6.0, 
-      "fastLimitCapacity": 10.0, 
+      "slowLimitPower": 1.5, 
+      "fastLimitPower": 2.0, 
+      "fastLimitCapacity": 4.0, 
       "fastLimitRecoverScale": 0.3, 
       "predictThd": 0.3, 
-      "margin": 0.22, 
+      "margin": 0.08, 
       "burst": 0.0, 
       "guideCap": true, 
-      "limitEfficiency": false
+      "limitEfficiency": true
     }, 
     "sysfs": {
       "cpusetTa": "0-8", 

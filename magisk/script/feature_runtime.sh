@@ -25,7 +25,7 @@ run_startup_feature() {
             sh "$SCRIPT_PATH/thermal_guard.sh" &
             ;;
         powercfg)
-            sh "$SCRIPT_PATH/powercfg_main.sh" auto
+            sh "$SCRIPT_PATH/powercfg_main.sh" powersave
             ;;
         uperf)
             uperf_start

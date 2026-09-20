@@ -2,21 +2,21 @@
 # '-' means offscreen (standby/screen-off) rule
 # '*' means default rule for unlisted apps
 
-# Social & Light Apps (Powersave / Balance for maximum cooling)
+# Social & Light Apps (Powersave for maximum cooling)
 com.facebook.katana powersave
 com.facebook.orca powersave
-com.ss.android.ugc.trill balance
-com.zhiliaoapp.musically balance
+com.ss.android.ugc.trill powersave
+com.zhiliaoapp.musically powersave
 com.zing.zalo powersave
 com.google.android.youtube powersave
-com.android.chrome balance
+com.android.chrome powersave
 com.google.android.GoogleCamera balance
 com.google.android.apps.photos powersave
 org.telegram.messenger powersave
-com.instagram.android balance
-com.shopee.vn balance
-vn.tiki.app balance
-com.lazada.android balance
+com.instagram.android powersave
+com.shopee.vn powersave
+vn.tiki.app powersave
+com.lazada.android powersave
 
 # Heavy Games (High FPS / Performance)
 com.garena.game.kgvn fast
@@ -28,6 +28,7 @@ com.miHoYo.Yuanshen fast
 com.miHoYo.hkrpg fast
 com.dts.freefireth fast
 com.roblox.client balance
+com.mojang.minecraftpe fast
 com.tencent.tmgp.sgame fast
 com.tencent.lolm fast
 
@@ -39,4 +40,4 @@ com.ioncannon.cpuburn.gpugflops fast
 
 # Global Defaults
 - powersave
-* balance
+* powersave

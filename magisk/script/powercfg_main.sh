@@ -53,7 +53,7 @@ case "$1" in
         apply_hardware_profile "performance"
         ;;
     "init")
-        apply_hardware_profile "balance"
+        apply_hardware_profile "powersave"
         ;;
     *)
         echo "Failed to apply unknown action '$1'."
